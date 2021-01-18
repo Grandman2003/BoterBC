@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "454397604267",
+    "project_id": "boterproject-ef86e",
+    "storage_bucket": "boterproject-ef86e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454397604267:android:c8212e3399bb92d61a22ee",
+        "android_client_info": {
+          "package_name": "com.example.boterprojectjunior"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "454397604267-eq809mev2decigdsespo1tn922381ji4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3OnO5hipZndA-7QxT8eqyAATlVKu5prM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "454397604267-eq809mev2decigdsespo1tn922381ji4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">BoterProjectJunior</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">Sign Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="sign_in">sign in</string>
+    <string name="login">e-mail</string>
+    <string name="create_ac">Create account</string>
+    <string name="password">password</string>
+    <string name="first_name">First name</string>
+    <string name="second_name">Second name</string>
+    <string name="registration">register</string>
+    <string name="registration_fragment_label">Registration Fragment</string>
+    <string name="password_error">Password is required</string>
+    <string name="email_error">E-mail is required</string>
+    <string name="first_name_error">First name is required</string>
+    <string name="last_name_error">Last name is required</string>
+    <string name="email_matches_error">Please, provide valid e-mail </string>
+    <string name="pass_leng_error">Min. password length should be 7 characters</string>
+    <string name="successful_user_reg">User is successfully registered</string>
+    <string name="failed_user_reg">User\'s registration is failed.Try again</string>
+    <string name="login_failure">Failed to login.Please,  check your e-mail and password.</string>
+    <string name="title_activity_work_field">WorkFieldActivity</string>
+    <string name="title_main_activity">MainActivity</string>
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="email_not_verified">Please, check your email to verify account</string>
+    <string name="business">business</string>
+    <string name="study">study</string>
+    <string name="playing">playing</string>
+</resources>
