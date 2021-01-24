@@ -1,10 +1,19 @@
 package com.example.boterprojectjunior.authorizing;
 
+import android.app.AlertDialog;
 import android.content.Context;
-import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.os.Parcel;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,12 +28,33 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.example.boterprojectjunior.MainActivity;
 import com.example.boterprojectjunior.R;
+import com.example.boterprojectjunior.domains.User;
+import com.example.boterprojectjunior.service.UserService;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Objects;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SignInFragment extends Fragment {
     private EditText login_field;
@@ -32,6 +62,7 @@ public class SignInFragment extends Fragment {
     private String login;
     private String password;
     private ProgressBar progressBar;
+    private static final String TAG=".SignInFragment";
     final String LOGIN_ID="login_id";
     final String PASSWORD_ID="password_id";
     private Button signer;
@@ -115,6 +146,7 @@ public class SignInFragment extends Fragment {
                             .navigate(R.id.action_SignInFragment_to_RegistrationFragment);
                 }
             });
+
     }
 
     private void userLogin(){
@@ -144,10 +176,31 @@ public class SignInFragment extends Fragment {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
+                    final FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
                     assert user != null;
                     if(user.isEmailVerified()){
                         progressBar.setVisibility(View.INVISIBLE);
+                        FirebaseDatabase.getInstance().getReference("Users").get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
+                            @Override
+                            public void onSuccess(DataSnapshot dataSnapshot) {
+                                HashMap<String, String> data=(HashMap<String, String>)
+                                        dataSnapshot.child(user.getUid()).getValue();
+                                data.put("token",user.getUid());
+                                User app_user =new User(data);
+                                Log.v(TAG,"IDshnik"+user.getUid());
+                                 Log.v(TAG, app_user.first_name);
+                                 //initUser(app_user);
+                                initUser(app_user);
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.v(TAG, "Operation to get data has failed");
+                                e.printStackTrace();
+                            }
+                        });
+                      //  initUser(app_user[0]);
+
                         NavHostFragment.findNavController(SignInFragment.this)
                                 .navigate(R.id.action_SignInFragment_to_WorkField);
                     }else{
@@ -163,5 +216,42 @@ public class SignInFragment extends Fragment {
             }
         });
 
+    }
+
+
+    private void initilize_user(User app_user){
+        GetUserTask task = new GetUserTask(getActivity());
+        task.execute(app_user);
+    }
+
+    private void initUser(User app_user) {
+        if (app_user != null) {
+            Retrofit retrofit = new Retrofit.Builder().
+                    baseUrl("http://192.168.137.1:6782").
+                    addConverterFactory(GsonConverterFactory.create()).
+                    build();
+            UserService service = retrofit.create(UserService.class);
+            try {
+                Gson gson=new Gson();
+                Call<User> caller=service.addUser(app_user);
+                Log.v(TAG,caller.request().url().toString());
+                Log.v(TAG, Objects.requireNonNull(caller.request().body().toString()));
+                caller.enqueue(new Callback<User>() {
+                    @Override
+                    public void onResponse(Call<User> call, Response<User> response) {
+                        Log.v(TAG, response.message());
+                    }
+
+                    @Override
+                    public void onFailure(Call<User> call, Throwable t) {
+                        Log.v(TAG,"IT IS FAILED,MAN");
+                    }
+                });
+            } catch (NullPointerException e) {
+                e.printStackTrace();
+            }
+
+
+        }
     }
 }
