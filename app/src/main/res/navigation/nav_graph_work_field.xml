@@ -12,6 +12,12 @@
         tools:layout="@layout/fragment_second2">
 
         <action
+            android:id="@+id/action_from_WorkField_To_GeneratorActivity"
+            app:destination="@+id/GeneratorActivity"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_close_enter"
+            />
+        <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/SignInFragment" />
         <action
@@ -22,12 +28,14 @@
         android:id="@+id/MainActivity"
         android:name="com.example.boterprojectjunior.MainActivity"
         android:label="@string/title_main_activity"
-        tools:layout="@layout/activity_work_field" />
+        tools:layout="@layout/activity_main" >
+    </activity>
     <activity
-        android:id="@+id/GeneratiorActivity"
+        android:id="@+id/GeneratorActivity"
         android:name="com.example.boterprojectjunior.GeneratorActivity"
         android:label="@string/title_activity_generator"
-        tools:layout="@layout/activity_generator"/>
+        tools:layout="@layout/activity_generator">
+</activity>
 
 
 

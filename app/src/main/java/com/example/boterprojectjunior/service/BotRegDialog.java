@@ -16,15 +16,26 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialog;
 import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.NavHostController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.boterprojectjunior.R;
+import com.example.boterprojectjunior.Second2Fragment;
+import com.example.boterprojectjunior.WorkFieldActivity;
+import com.example.boterprojectjunior.authorizing.SignInFragment;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 public class BotRegDialog extends BottomSheetDialogFragment {
     private EditText bot_token;
     private EditText bot_name;
+    private Fragment fragment;
     private Button regist;
+
+    public BotRegDialog(Fragment fragment){
+        this.fragment=fragment;
+    }
 
 
     @Nullable
@@ -45,7 +56,8 @@ public class BotRegDialog extends BottomSheetDialogFragment {
         regist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BotRegDialog.this.dismiss();
+                NavHostFragment.findNavController(fragment).
+                        navigate(R.id.action_from_WorkField_To_GeneratorActivity);
             }
         });
     }

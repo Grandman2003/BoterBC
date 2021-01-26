@@ -21,9 +21,23 @@ public class Second2Fragment extends Fragment {
     ViewPager2 library_lists;
     Library_Adapter library_adapter;
     TabLayout library_tabs;
+    private Second2Fragment fragment;
     final String LOGIN_ID="login_id";
     final String PASSWORD_ID="password_id";
     final String TAG="Second2Fragment_Initializing";
+
+    private static Second2Fragment newInstance(){
+        return new Second2Fragment();
+    }
+
+    public Second2Fragment getInstance(){
+        if (fragment!=null){
+            return fragment;
+        }else{
+            this.fragment=Second2Fragment.newInstance();
+            return fragment;
+        }
+    }
 
 
     @Override
