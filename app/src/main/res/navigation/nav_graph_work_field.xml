@@ -23,5 +23,14 @@
         android:name="com.example.boterprojectjunior.MainActivity"
         android:label="@string/title_main_activity"
         tools:layout="@layout/activity_work_field" />
+    <activity
+        android:id="@+id/GeneratiorActivity"
+        android:name="com.example.boterprojectjunior.GeneratorActivity"
+        android:label="@string/title_activity_generator"
+        tools:layout="@layout/activity_generator"/>
+
+
+
+
 
 </navigation>

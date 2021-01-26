@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".GeneratorActivity">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:id="@+id/hierachy_field"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintEnd_toStartOf="@id/setting_field"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_marginEnd="40dp"
+            app:textInputLayoutFocusedRectEnabled="true"
+            android:layout_height="wrap_content"
+            android:text="@string/create_it"
+            app:fontFamily="@font/montserrat_black"
+            android:textColor="@color/reg_blue"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:textSize="30dp"
+            />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_height="match_parent"
+            android:layoutMode="opticalBounds"
+            android:layout="@layout/fragment_bot_items_list"
+           />
+
+    </LinearLayout>
+
+
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="3dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:layout_height="0dp"
+        android:background="@color/reg_blue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/setting_field"
+        app:layout_constraintStart_toEndOf="@id/hierachy_field"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/setting_field"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/hierachy_field"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

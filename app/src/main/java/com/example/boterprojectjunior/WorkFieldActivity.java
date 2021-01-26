@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import com.example.boterprojectjunior.service.BotRegDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -32,8 +33,14 @@ public class WorkFieldActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                   //      .setAction("Action", null).show();
-
+                openRegDialog();
             }
         });
+    }
+
+    private void openRegDialog() {
+        BotRegDialog dialog= new BotRegDialog();
+        dialog.setCancelable(false);
+        dialog.show(getSupportFragmentManager(),"bot_reg_dialog");
     }
 }
