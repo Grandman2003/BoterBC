@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_settings" translatable="false">Настройки</string>
+    <string name="next">Следующий</string>
+    <string name="previous">Назад</string>
+    <string name="sign_in">Войти</string>
+    <string name="create_ac">Создать аккаунт</string>
+    <string name="password">пароль</string>
+    <string name="first_name">Имя</string>
+    <string name="second_name">Фамилия</string>
+    <string name="registration">зарегистрироваться</string>
+    <string name="password_error">Требуется пароль</string>
+    <string name="email_error">Требуется почта j</string>
+    <string name="login">почта</string>
+    <string name="first_name_error">Тебуется имя</string>
+    <string name="last_name_error">Требуется фамилия</string>
+    <string name="email_matches_error">Пожалуйста, введите адрес почты корректно</string>
+    <string name="pass_leng_error">Пароль должен состоять не менее, чем из 7 символов</string>
+    <string name="successful_user_reg">Пользователь успешно зарегистрировался</string>
+    <string name="failed_user_reg">Регистрация пользователя провалилась.Попробуйте снова</string>
+    <string name="login_failure">Не удалось войти.Пожалуйста, проверьте введённую почту и пароль</string>
+    <string name="email_not_verified">Пожалуйста, подтвердите свою регистрацию по почте</string>
+    <string name="business">бизнес</string>
+    <string name="study">учёба</string>
+    <string name="playing">развлечение</string>
+    <string name="bot_name">Имя бота</string>
+    <string name="token_bot">Ключ бота</string>
+    <string name="create_it">Создать</string>
+    <string name="bot_image">профиль бота</string>
+    <string name="bot_info_out_of">Пожалуйста, введите ключ и имя бота</string>
+    <string name="app_name">Конструктор Boter</string>
+    <string name="title_activity_work_field">Библиотека</string>
+</resources>

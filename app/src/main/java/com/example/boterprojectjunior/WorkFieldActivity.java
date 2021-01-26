@@ -48,7 +48,7 @@ public class WorkFieldActivity extends AppCompatActivity {
 
     private void openRegDialog() {
         BotRegDialog dialog= new BotRegDialog(getSupportFragmentManager().findFragmentByTag(".SecondFragment"));
-        dialog.setCancelable(false);
+        dialog.setCancelable(true);
         dialog.show(getSupportFragmentManager(),"bot_reg_dialog");
     }
 }

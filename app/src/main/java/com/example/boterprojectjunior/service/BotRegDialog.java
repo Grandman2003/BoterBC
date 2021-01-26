@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,6 +27,7 @@ import com.example.boterprojectjunior.WorkFieldActivity;
 import com.example.boterprojectjunior.authorizing.SignInFragment;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+import com.google.android.material.snackbar.Snackbar;
 
 public class BotRegDialog extends BottomSheetDialogFragment {
     private EditText bot_token;
@@ -56,8 +58,13 @@ public class BotRegDialog extends BottomSheetDialogFragment {
         regist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NavHostFragment.findNavController(fragment).
-                        navigate(R.id.action_from_WorkField_To_GeneratorActivity);
+                if(!bot_token.getText().toString().equals("") && !bot_name.getText().toString().equals("")){
+                    NavHostFragment.findNavController(fragment).
+                            navigate(R.id.action_from_WorkField_To_GeneratorActivity);
+                }else{
+                    Toast.makeText(getContext(),R.string.bot_info_out_of,Toast.LENGTH_LONG).show();
+                }
+
             }
         });
     }
