@@ -24,12 +24,12 @@ public class Library_ViewHolder extends RecyclerView.ViewHolder {
         map.put("first_field_name","56");
         map.put("second_field_name","54");
         map.put("third_field_name","97");
-        map.put("first_field_data","Offers");
-        map.put("second_field_data","Somet");
-        map.put("third_field_data","Cases");
-        some_info_example.add(new Bot_Info("Boutique",map,null));
-        some_info_example.add(new Bot_Info("Kaffe",map,null));
-        some_info_example.add(new Bot_Info("Tonnic",map,null));
+        map.put("first_field_data","Заказы");
+        map.put("second_field_data","Активн.");
+        map.put("third_field_data","Комм.");
+        some_info_example.add(new Bot_Info("Бутик",map,null));
+        some_info_example.add(new Bot_Info("Кафе",map,null));
+        some_info_example.add(new Bot_Info("Магазин",map,null));
     }
 
     public Library_ViewHolder(@NonNull View itemView) {

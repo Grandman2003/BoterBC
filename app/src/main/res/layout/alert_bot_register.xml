@@ -20,7 +20,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="@string/bot_info_string"
+                android:fontFamily="@font/montserrat_bold"
+                android:textColor="@color/reg_blue"
                 android:textAlignment="center"
                 android:textSize="30dp" />
         </TableRow>
@@ -62,6 +64,9 @@
             <Button
                 android:id="@+id/register"
                 android:layout_weight="1"
+                android:background="@color/sky_blue"
+                android:textColor="@color/white"
+                android:fontFamily="@font/montserrat_semibolditalic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/create_it" />

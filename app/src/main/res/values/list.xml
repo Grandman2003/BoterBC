@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="functions">
+        <item>study</item>
+        <item>business</item>
+        <item>playing</item>
+    </string-array>
+    <string-array name="first">
+        <item>викторина</item>
+        <item>сопоставьте</item>
+        <item>прослушайте</item>
+    </string-array>
+    <string-array name="second">
+        <item>анкета</item>
+        <item>отчёт</item>
+        <item>статистика</item>
+    </string-array>
+    <string-array name="third">
+        <item>змейка</item>
+        <item>эхо</item>
+        <item>блиц</item>
+    </string-array>
+</resources>

@@ -3,6 +3,7 @@ package com.example.boterprojectjunior.service;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -59,6 +60,12 @@ public class BotRegDialog extends BottomSheetDialogFragment {
             @Override
             public void onClick(View v) {
                 if(!bot_token.getText().toString().equals("") && !bot_name.getText().toString().equals("")){
+                    SharedPreferences preferences=fragment.getActivity()
+                            .getSharedPreferences("BOTDATA",Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor=preferences.edit();
+                    editor.putString("BOTNAME",bot_name.getText().toString());
+                    editor.putString("BOTTOKEN",bot_token.getText().toString());
+                    editor.apply();
                     NavHostFragment.findNavController(fragment).
                             navigate(R.id.action_from_WorkField_To_GeneratorActivity);
                 }else{

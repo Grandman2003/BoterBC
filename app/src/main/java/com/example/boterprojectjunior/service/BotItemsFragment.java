@@ -27,19 +27,21 @@ public class BotItemsFragment extends Fragment {
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 1;
-    private static ArrayList<BotListItem> items=new ArrayList<BotListItem>();
-    static {
-        items.add(new BotListItem(1,"echo answer",null));
-        items.add(new BotListItem(2,"ask and answer",null));
-        items.add(new BotListItem(3,"poll request",null));
-        items.add(new BotListItem(4,"statistics",null));
-    }
+    private final ArrayList<BotListItem> items;
+    private RecyclerView recyclerView;
+    //static {
+      //  items.add(new BotListItem(1,"echo answer",null));
+       // items.add(new BotListItem(2,"ask and answer",null));
+       // items.add(new BotListItem(3,"poll request",null));
+       // items.add(new BotListItem(4,"statistics",null));
+   // }
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
     public BotItemsFragment() {
+        this.items=new ArrayList<BotListItem>();
     }
 
     // TODO: Customize parameter initialization
@@ -61,6 +63,14 @@ public class BotItemsFragment extends Fragment {
         }
     }
 
+    public void addItem(String name){
+        items.add(new BotListItem(items.size(),name,null));
+        MyItemRecyclerViewAdapter adapter= (MyItemRecyclerViewAdapter) recyclerView.getAdapter();
+        assert adapter != null;
+        adapter.setmValues(items);
+        recyclerView.setAdapter(adapter);
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -69,7 +79,7 @@ public class BotItemsFragment extends Fragment {
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
+            recyclerView = (RecyclerView) view;
             if (mColumnCount <= 1) {
                 recyclerView.setLayoutManager(new LinearLayoutManager(context));
             } else {

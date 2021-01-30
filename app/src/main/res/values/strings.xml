@@ -35,6 +35,9 @@
     <string name="bot_name">Bot name</string>
     <string name="token_bot">Bot token</string>
     <string name="create_it">Create it</string>
+    <string name="description">Add functions:</string>
+    <string name="bot_info_string">Bot info</string>
+    <string name="success_create">Success!</string>
     <string name="bot_image">Bot profile</string>
     <string name="bot_info_out_of">"Please enter token and bot name</string>
 </resources>

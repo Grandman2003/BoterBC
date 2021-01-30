@@ -30,4 +30,7 @@
     <string name="bot_info_out_of">Пожалуйста, введите ключ и имя бота</string>
     <string name="app_name">Конструктор Boter</string>
     <string name="title_activity_work_field">Библиотека</string>
+    <string name="description">Добавить функции:</string>
+    <string name="bot_info_string">Инф. о боте</string>
+    <string name="success_create">Успешно!</string>
 </resources>

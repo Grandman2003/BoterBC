@@ -48,7 +48,7 @@
                 android:text="TextView"
                 android:paddingLeft="5dp"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/sen_bold"
+                android:fontFamily="@font/montserrat_semibold"
                 android:textColor="@color/white"
                 android:textSize="25dp" />
 

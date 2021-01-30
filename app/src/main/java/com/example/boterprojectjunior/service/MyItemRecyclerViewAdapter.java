@@ -19,9 +19,13 @@ import java.util.List;
  */
 public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder> {
 
-    private final List<BotListItem> mValues;
+    private List<BotListItem> mValues;
 
     public MyItemRecyclerViewAdapter(ArrayList<BotListItem> items) {
+        mValues = items;
+    }
+
+    public void setmValues(ArrayList<BotListItem> items){
         mValues = items;
     }
 

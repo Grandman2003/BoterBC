@@ -1,5 +1,6 @@
 package com.example.boterprojectjunior.service;
 
+import com.example.boterprojectjunior.domains.BotSkeleton;
 import com.example.boterprojectjunior.domains.User;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 import com.google.gson.Gson;
@@ -32,6 +33,9 @@ public interface UserService {
 
     @GET("/user/{token}")
     Call <User> getUser(@Path("token") String token);
+
+    @POST("/user/addBot")
+    Call<BotSkeleton> addBot(@Body BotSkeleton bot);
 
 
 }
